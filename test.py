@@ -7,12 +7,12 @@ from bs4 import BeautifulSoup
 class Scraper:
     def __init__(self):
         dataSource = {
-			# "Top App Developers in Delhi":"https://clutch.co/in/app-developers/delhi",
-			# "Top UX Designers in Delhi":"https://clutch.co/in/agencies/ui-ux/delhi",
-			# "Top Mobile App Developers in India":"https://clutch.co/directory/mobile-application-developers-india",   
-			# "Top Mobile App Development Companies":"https://clutch.co/directory/mobile-application-developers",
+			"Top App Developers in Delhi":"https://clutch.co/in/app-developers/delhi",
+			"Top UX Designers in Delhi":"https://clutch.co/in/agencies/ui-ux/delhi",
+			"Top Mobile App Developers in India":"https://clutch.co/directory/mobile-application-developers-india",   
+			"Top Mobile App Development Companies":"https://clutch.co/directory/mobile-application-developers",
 			"Top Web Design Companies":"https://clutch.co/web-designers",
-			# "Top Education App Developers":"https://clutch.co/app-developers/education"
+			"Top Education App Developers":"https://clutch.co/app-developers/education"
 			}    	
         self.__datasource = dataSource
         return
@@ -42,15 +42,15 @@ class Scraper:
    			print("topic:- ", topic)
    			print("-----------------------------------------------------------------")
 
-   			counter = 453
+   			counter = 0
    			ranked = 0
    			searching_continue = True
    			while searching_continue:
    				data = self.parsing("{}?page={}".format(topic_url,counter))
    				counter = counter+1
    				res_list = [i for i in range(len(data)) if data[i] == "Nickelfox"]
-   				print("\nLength of data:- ", len(data))
-   				print("Companies in page {} :- {}".format(counter,data))
+   				# print("\nLength of data:- ", len(data))
+   				# print("Companies in page {} :- {}".format(counter,data))
    				ranked = ranked+len(data)
    				if res_list and len(res_list) > 0:
    					if counter >= 1:
